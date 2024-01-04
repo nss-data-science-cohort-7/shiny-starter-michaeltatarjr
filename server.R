@@ -9,18 +9,18 @@
 
 library(shiny)
 
-
-
-# Define server logic required to draw a histogram
+# Define server logic required to draw scatterplot
 function(input, output, session) {
 
   output$distPlot <- renderPlot({
     
     gdp_per |> 
+      filter(Year == input$Year) %>% 
       ggplot(aes(x = `Country or Area`, y=Value)) + 
+      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
       geom_point() +
-      labs(x = 'Waiting time to next eruption (in mins)',
-           title = 'Histogram of waitg times')
+      labs(x = 'Countries',
+           title = 'GDP Scatterplot, Per Year!')
     
 
     })

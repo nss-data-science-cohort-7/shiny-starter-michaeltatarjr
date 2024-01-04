@@ -7,24 +7,23 @@
 #    https://shiny.posit.co/
 #
 
-
-
 # Define UI for application that draws a histogram
 fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("GDP Per Capita"),
 
-    # Sidebar with a slider input for number of bins
+    # Sidebar with a slider input
     sidebarLayout(
         sidebarPanel(
-          selectInput("select", 
-                      label = h3("Select box"), 
-                      choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3), 
-                      selected = 1)
-       
-        ),
-
+   #long slider that connects to df and yields the 
+      fluidRow(
+        shiny::column(8, offset = 0,
+                  sliderInput("Year", "Year",
+                            min = min(gdp_per$Year), max = max(gdp_per$Year),
+                                  value = min(gdp_per$Year), animate = TRUE),
+        )),
+),
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot")
