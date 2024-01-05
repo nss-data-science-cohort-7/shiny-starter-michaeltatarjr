@@ -11,24 +11,25 @@
 fluidPage(theme= shinytheme("sandstone"),
  # shinythemes::themeSelector(),
     # Application title
-    titlePanel("GDP Per Capita"),
-
+    titlePanel(
+      h1("   GDP Per Capita, w/ automated year count" )
+    ),
     # Sidebar with a slider input
     sidebarLayout(
-        sidebarPanel( width = 8,
-        mainPanel( width = 12),
-   #long slider that connects to df and yields the 
+        sidebarPanel( width = 8, align = 'center',
+        
+   #long slider that connects to df, animated
       fluidRow(
-        shiny::column(10, offset = 1,
+        shiny::column(11, offset = 1,
                   sliderInput("Year", "Year",
                             min = min(gdp_per$Year), max = max(gdp_per$Year),
                                   value = min(gdp_per$Year), animate = TRUE)
         )),
 ),
-        # Show a plot of the generated distribution
+        # Show a plot of the generated distribution, moving over time
         mainPanel(
           fluidRow(
-            column(width = 12, height = 200,
+            column(width = 12, align = 'center',
                plotOutput("distPlot")
         )
     )

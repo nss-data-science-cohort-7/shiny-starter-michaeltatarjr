@@ -6,8 +6,8 @@
 #
 #    https://shiny.posit.co/
 #
-
 library(shiny)
+
 
 # Define server logic required to draw scatterplot
 function(input, output, session) {
@@ -17,7 +17,7 @@ function(input, output, session) {
     gdp_per |> 
       filter(Year == input$Year) %>% 
       ggplot(aes(x = `Country or Area`, y=Value)) + 
-      theme(axis.title = element_text(size = 20)) +
+      theme(axis.title = element_text(size = 18)) +
       theme(axis.text.x = element_text( angle = 90, vjust = 0.5, hjust=1)) +
       geom_point() +
       labs(x = 'Countries',
