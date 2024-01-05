@@ -17,7 +17,8 @@ function(input, output, session) {
     gdp_per |> 
       filter(Year == input$Year) %>% 
       ggplot(aes(x = `Country or Area`, y=Value)) + 
-      theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+      theme(axis.title = element_text(size = 20)) +
+      theme(axis.text.x = element_text( angle = 90, vjust = 0.5, hjust=1)) +
       geom_point() +
       labs(x = 'Countries',
            title = 'GDP Scatterplot, Per Year!')

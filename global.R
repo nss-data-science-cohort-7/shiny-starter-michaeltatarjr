@@ -1,11 +1,12 @@
 library(shiny)
 library(tidyverse)
 library(dplyr)
+library(shinythemes)
 
 continents <- read_csv('./data/continents.csv')
 gdp_per <- read_csv('./data/gdp_per_capita.csv')
 
-
+#shinytheme(sandstone)
 
 
 # my_packages <- as.data.frame(installed.packages()[ , c(1, 3:4)])            # Apply installed.packages()

@@ -7,26 +7,31 @@
 #    https://shiny.posit.co/
 #
 
-# Define UI for application that draws a histogram
-fluidPage(
-
+# Define UI for application 
+fluidPage(theme= shinytheme("sandstone"),
+ # shinythemes::themeSelector(),
     # Application title
     titlePanel("GDP Per Capita"),
 
     # Sidebar with a slider input
     sidebarLayout(
-        sidebarPanel(
+        sidebarPanel( width = 8,
+        mainPanel( width = 12),
    #long slider that connects to df and yields the 
       fluidRow(
-        shiny::column(8, offset = 0,
+        shiny::column(10, offset = 1,
                   sliderInput("Year", "Year",
                             min = min(gdp_per$Year), max = max(gdp_per$Year),
-                                  value = min(gdp_per$Year), animate = TRUE),
+                                  value = min(gdp_per$Year), animate = TRUE)
         )),
 ),
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+          fluidRow(
+            column(width = 12, height = 200,
+               plotOutput("distPlot")
         )
     )
+)
+)
 )
